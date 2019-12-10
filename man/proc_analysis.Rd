@@ -9,7 +9,7 @@ proc_analysis(full_table, phenotype, my_model, ...)
 \arguments{
 \item{full_table}{data.frame containing phenotype and score information}
 
-\item{phenotype}{column name for phenotype}
+\item{phenotype}{character vector for phenotype}
 
 \item{my_model}{glm for Y ~ prs (+ covariates)}
 

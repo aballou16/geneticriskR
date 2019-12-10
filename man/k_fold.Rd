@@ -4,18 +4,14 @@
 \alias{k_fold}
 \title{performs 5-fold cross validation}
 \usage{
-k_fold(full_table, phenotype, age_col, sex_col, score_col)
+k_fold(phenotype, score_col, full_table)
 }
 \arguments{
+\item{phenotype}{character vector for phenotype}
+
+\item{score_col}{character vector for score}
+
 \item{full_table}{data.frame containing phenotype and score information}
-
-\item{phenotype}{column name for phenotype}
-
-\item{age_col}{age column}
-
-\item{sex_col}{sex column}
-
-\item{score_col}{score column}
 }
 \description{
 performs 5-fold cross validation

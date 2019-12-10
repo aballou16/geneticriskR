@@ -1,19 +1,26 @@
 Package: geneticriskR
-Title: What the Package Does (One Line, Title Case)
+Title: Standard Analyses for Polygenic Risk Score Data for PRSice-2 output. 
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Anna",
+           family = "Ballou",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "afballou16@gmail.com")
+Description: Provides standard formatting, statistical analyses and plotting
+    for polygenic risk score data generating using PRSice-2 software. The goal 
+    of this package is to decrease the inconsistency in PRS analyses and make
+    PRS studies more reporducible. 
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/aballou16/geneticriskR
 Suggests: 
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    ggplot2,
+    dplyr,
+    graphics
 VignetteBuilder: knitr
 RoxygenNote: 7.0.0
+Imports: 
+    geneticriskR
