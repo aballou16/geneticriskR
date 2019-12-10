@@ -18,43 +18,36 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/aballou16/geneticriskR.svg?branch=master)](https://travis-ci.org/aballou16/geneticriskR)
 <!-- badges: end -->
 
-The goal of geneticriskR is to ...
+The goal of geneticriskR is to provide standard formatting, statistical analyses
+and plotting for polygenic risk score data generating using PRSice-2 software. 
+Because recent genetic risk studies have shown a great deal of inconsistency, 
+this package will allow for future studies to be more easily reproduced. 
 
 ## Installation
 
-You can install the released version of geneticriskR from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of geneticriskR from 
+[Github](https://github.com/) with:
 
-``` r
-install.packages("geneticriskR")
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
+```{r, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("aballou16/geneticriskR")
 ```
-## Example
 
-This is a basic example which shows you how to solve a common problem:
+## Example(s)
 
-```{r example}
+This is a basic example which demonstrates how to run a simple logistic 
+regression model using an example output file from PRSice-2. 
+
+```{r, eval = FALSE}
 library(geneticriskR)
-## basic example code
+simple_mod <- simple_logistic_reg(test_data, hypertension)
+simple_mod
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
+This is another example which demonstrates how to run roc/auc analysis on the
+model generated above. 
+```{r, eval = FALSE}
+library(geneticriskR)
+proc_analysis(test_data, "hypertension", simple_mod)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
