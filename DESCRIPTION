@@ -13,13 +13,11 @@ Description: Provides standard formatting, statistical analyses and plotting
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/aballou16/geneticriskR
+Depends: R (>= 2.10)
 Suggests: 
     testthat,
     knitr,
-    rmarkdown,
-    ggplot2,
-    dplyr,
-    graphics
+    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.0.0
 Imports: 
