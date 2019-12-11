@@ -54,5 +54,3 @@ conrols.
 library(geneticriskR)
 compare_boxplots(test_data, hypertension, prs)
 ```
-
-![side by side boxplots](./desktop/plot.png)
