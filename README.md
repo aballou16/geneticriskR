@@ -25,6 +25,14 @@ You can install the development version of geneticriskR from
 devtools::install_github("aballou16/geneticriskR")
 ```
 
+## Usage
+
+PRS research has seen significant backlash over the past decade. Much of
+this is the result of inconsistent, unreproducible results. While
+sharing genetic data is difficult (due to privacy, patient protection
+laws), using GeneticriskR will allow for other research to understand
+the analyses that formed the study.
+
 ## Example(s)
 
 This is a basic example which demonstrates how to run a simple logistic
