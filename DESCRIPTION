@@ -24,5 +24,3 @@ Imports:
     dplyr
     ggplot2
     pROC
-    RColorBrewer
-    
