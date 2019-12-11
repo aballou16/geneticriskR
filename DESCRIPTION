@@ -20,5 +20,9 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.0.0
-Imports: 
-    geneticriskR
+Imports:
+    dplyr
+    ggplot2
+    pROC
+    RColorBrewer
+    
