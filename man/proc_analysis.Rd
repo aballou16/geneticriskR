@@ -4,7 +4,7 @@
 \alias{proc_analysis}
 \title{runs ROC analysis}
 \usage{
-proc_analysis(full_table, phenotype, my_model, ...)
+proc_analysis(full_table, phenotype, my_model)
 }
 \arguments{
 \item{full_table}{data.frame containing phenotype and score information}
@@ -12,8 +12,6 @@ proc_analysis(full_table, phenotype, my_model, ...)
 \item{phenotype}{character vector for phenotype}
 
 \item{my_model}{glm for Y ~ prs (+ covariates)}
-
-\item{...}{arguments passed}
 }
 \description{
 runs ROC analysis

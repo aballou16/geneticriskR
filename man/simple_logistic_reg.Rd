@@ -7,14 +7,14 @@
 \usage{
 simple_logistic_reg(full_table, phenotype, ...)
 
-complex_logistic_reg(full_table, phenotype, ...)
+complex_logistic_reg(full_table, phenotype)
 }
 \arguments{
 \item{full_table}{data.frame containing phenotype and score information}
 
-\item{phenotype}{column name for phenotype}
+\item{phenotype}{character vector for phenotype}
 
-\item{...}{arguments passed}
+\item{...}{dots argument for glm capabilities}
 }
 \description{
 Runs a simple logistic regression with only prs as a predictor.

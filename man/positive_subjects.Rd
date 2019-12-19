@@ -9,7 +9,7 @@ positive_subjects(full_table, phenotype)
 \arguments{
 \item{full_table}{data.frame containing phenotype and score information}
 
-\item{phenotype}{column name for phenotype}
+\item{phenotype}{character vector for column name for phenotype}
 }
 \description{
 outputs the number of subjects who are positive for the phenotype

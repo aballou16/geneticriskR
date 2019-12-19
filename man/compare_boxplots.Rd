@@ -4,14 +4,14 @@
 \alias{compare_boxplots}
 \title{compares the prs for the cases and controls}
 \usage{
-compare_boxplots(full_table, phenotype, score, ...)
+compare_boxplots(full_table, phenotype, score)
 }
 \arguments{
 \item{full_table}{data.frame containing phenotype and score information}
 
-\item{phenotype}{column name for the phenotype}
+\item{phenotype}{character vector for column name for the phenotype}
 
-\item{score}{column name for score}
+\item{score}{character vector for column name for score}
 }
 \description{
 compares the prs for the cases and controls
