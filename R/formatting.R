@@ -1,14 +1,25 @@
-# select columns from phenotypes table that are related to phenotype of interest
-pheno_select <- function(phenotype_file, phenotype_list) {
-  phenotypes <- phenotype_file %>%
-    select(phenotype_list)
-  return(pheno_select())
-}
-# might have to remove NAss here
+#' Selects column from phenotypic dataset to be used in analyses
+#' @name pheno_select
+#' @param pheno_table data.frame containing phenotypic information
+#' @param pheno_name character vector column name of the phenotype of interest
+#' @importFrom dplyr %>% 
+#' @importFrom dplyr select
+#' @export
 
-# join phenotype file with score file
-join_scores <- function(phenotype_file, score_file) {
-  full_table <- phenotype_file %>%
-    inner_join(score_file, by = "IID")
-  return(full_table)
+pheno_select <- function(pheno_table, pheno_name){
+  vars <- c(pheno_name, "age", "sex", "IID")
+  pheno_table[vars]
+}
+
+#' join phenotype file with score file
+#' @name join_scores
+#' @param pheno_table data.frame containing phenotypic information 
+#' @param score_table data.frame containing score information 
+#' @importFrom dplyr %>% 
+#' @importFrom dplyr inner_join
+#' @export
+
+join_scores <- function(pheno_table, score_table) {
+  pheno_table %>%
+    inner_join(score_table, by = "IID")
 }

@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/aballou16/geneticriskR.svg?branch=master)](https://travis-ci.org/aballou16/geneticriskR)
 <!-- badges: end -->
 
+## Package Aims
+
 The goal of geneticriskR is to provide standard formatting, statistical analyses
 and plotting for polygenic risk score data generated using [PRSice-2](https://www.prsice.info/) software. 
 Because recent genetic risk studies have shown a great deal of inconsistency, 
@@ -33,40 +35,30 @@ You can install the development version of geneticriskR from
 devtools::install_github("aballou16/geneticriskR")
 ```
 
-## Usage
+## Inspiration
 
-PRS research has seen significant backlash over the past decade. Much of this is 
-the result of inconsistent, unreproducible results. While sharing genetic data
-is difficult (due to privacy, patient protection laws), using GeneticriskR
-will allow for other research to understand the analyses that formed the study. 
+PRS research has seen significant backlash over the past decade. Much of this controversy is 
+the result of inconsistent, unreproducible results. While sharing genetic data is difficult (due to privacy and patient protection laws), using GeneticriskR will allow for other researchers to understand and replicate the analyses that formed the study. 
 
 ## Example(s)
 
-This is a basic example which demonstrates how to run a simple logistic 
-regression model using an example output file from PRSice-2 called "test_data." 
+This is a basic example which demonstrates how to run a simple logistic regression model using an example output file from PRSice-2 called "test_data." 
+
 
 ```{r}
-
-```
-
-```{r, eval = FALSE}
 library(geneticriskR)
-View(test_data)
-simple_mod <- simple_logistic_reg(test_data, hypertension)
+simple_mod <- simple_logistic_reg(test_data, "hypertension")
 simple_mod
 ```
 
-This is another example which demonstrates how to run roc/auc analysis on the
-model generated above. 
-```{r, eval = FALSE}
-library(geneticriskR)
+This is another example which demonstrates how to run roc/auc analysis on the model generated above. 
+
+```{r}
 proc_analysis(test_data, "hypertension", simple_mod)
 ```
 
-This is an example of one of the standard plots included in most PRS analyses:
-the side by side box plot comparing scores for cases and conrols. 
+This is an example of one of the standard plots included in most PRS analyses:a side by side box plot comparing scores for cases and conrols. 
 
-```{r, eval = FALSE}
-library(geneticriskR)
-compare_boxplots(test_data, hypertension, prs)
+```{r}
+compare_boxplots(test_data, "hypertension", "prs")
 ```

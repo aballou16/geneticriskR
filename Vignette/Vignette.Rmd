@@ -6,14 +6,96 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+## Using geneticriskR for standard analyses: A Walk-through example ###
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+In this vignette, we will demonstrate how to use geneticriskR to perform basic analyses for polygenic risk score studies. 
+
+**Step 1. Install geneticriskR**
 
 ```{r setup}
+#library the package
 library(geneticriskR)
 ```
+
+**Step 2. Read in your PRSice-2 output file and your phenotype file**
+
+PRSice-2 output files have a standard format that include prs and IID as column names. Read in the file as .csv. 
+
+```{r, eval = FALSE}
+score_table <- read_csv(here::here("output_file_name.csv"))
+```
+
+The phenotype file should have all phenotypes of interest and IID as column names. Read in the files as a .csv.
+
+```{r, eval = FALSE}
+phenotypes_table <- read_csv(here::here("phenotype_file_name.csv"))
+```
+
+For this vignette, we will be using the mock data included in this package (pheno_data and score_data). It is important to note that the values for score and phenotype were randomly generated, so they do not appear to be very predictive. 
+
+**Step 3. Select which phenotype you would like to use from the phenotype file using pheno_select(). In this example, we chose hypertension**
+
+```{r}
+phenotype_table <- pheno_select(pheno_data, "hypertension")
+head(phenotype_table)
+```
+
+*Note: pass your phenotype column name (in this case, hypertension) as a character vector*
+
+**Step 4. Join the newly generated phenotype_table with the score_table you previously read in using join_scores()**
+
+```{r}
+full_table <- join_scores(phenotype_table, score_data)
+head(full_table)
+```
+
+**Step 5. Perform analyses on full_table to assess the predictive power of the scores. In this example, we will use a simple logistc regression model using simple_logistic_reg() and examine the area under the curve using proc_analysis()**
+
+```{r}
+#simple logistic regression
+simple_mod <- simple_logistic_reg(full_table, "hypertension")
+summary(simple_mod)
+```
+
+```{r}
+#ROC/AUC analysis
+proc_analysis(full_table, "hypertension", simple_mod)
+```
+
+*Note: Important things to consider from these analyses:*
+
+- *p value for prs > 0.05*
+  
+- *AUC is approximately 0.5*
+  
+
+**Step 6. Examine the distribution of the scores visually. In this example, we will examine side by side boxplots for the scores in cases and controls using compare_boxplots(). **
+
+```{r}
+compare_boxplots(full_table, "hypertension", "prs")
+```
+
+**Conclusion from our analyses: since we found an AUC of approxmiately 0.5, a p-value > 0.5 for our scores, and our side by side boxplots appear almost identical, we conclude that our scores do not predict hypertension risk effectively. Again, this is expected as our scores were randomly generated and binary values for hypertension were randomly assigned to individuals in our "cohort." **
+
+**Step 7. Repeat for new scores and phenotypes. Use other functions in this package, such as k_fold() and complex_logistic_reg(). **
+
+## A comprehensive list of functions in this package: ##
+
+- **pheno_select()** *selects phenotype of interest from the large phenotype file*
+
+- **join_scores()** *joins the raw score table to the phenotype table*
+
+- **simple_logistic_reg()** *performs simple logistic regression using phenotype as response and prs as predictor*
+
+- **complex_logistic_reg()** *performs logistic regression using phenotype as response and prs, age, and sex as predictors*
+
+- **proc_analysis()** *examines the area under the curve of a sensitivy/specificty plot. This is an indicator for predictiveness of a model. Outputs an ROC curve and a AUC value* 
+
+- **k_fold()** *performs 5 fold cross validation, outputs separate roc curves for each fold, as well as one graph that includes all curves*
+
+- **compare_boxplots()** *outputs side by side boxplots to compare the score distribution in cases and controls*
+
+- **score_distribution()** *outputs a histogram for the score distribution. Used as a check to make sure scores are normally distributed.* 
+
+
+

@@ -1,5 +1,5 @@
 Package: geneticriskR
-Title: Standard Analyses for Polygenic Risk Score Data for PRSice-2 output. 
+Title: Standard Analyses for Polygenic Risk Score Data for PRSice-2 output
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Anna",
@@ -14,14 +14,15 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/aballou16/geneticriskR
 Depends: R (>= 2.10)
+License: GPL-3
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     knitr,
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.0.0
 Imports:
-    dplyr
-    ggplot2
-    pROC
+    dplyr,
+    ggplot2,
+    pROC,
     RColorBrewer
