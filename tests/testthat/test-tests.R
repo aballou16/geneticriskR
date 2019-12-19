@@ -39,9 +39,5 @@ test_that("message exists", {
   expect_message(compare_boxplots(test_data, "hypertension", "prs"))
 })
 
-#test that kfold outputs a message indicating cases and control values
-test_that("message outputs", {
-  expect_message(k_fold("hypertension", "prs", test_data))
-})
 
 #devtools::test()
