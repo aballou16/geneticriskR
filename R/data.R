@@ -1,9 +1,6 @@
 #' score and phenotype
-#' 
 #' a mock dataset containing score and phenotype information
-#' 
 #' @name test_data
-#' 
 #' @format data.frame with 3300 rows and 4 columns
 #' \describe{
 #'   \item{prs}{polygenic risk score}
@@ -38,11 +35,8 @@ test_data <- data.frame(prs, hypertension, age, sex)
 usethis::use_data(test_data, overwrite = TRUE)
 
 #' phenotype table
-#' 
 #' a mock dataset containing phenotype information
-#' 
 #' @name pheno_data
-#' 
 #' @format data.frame with 3300 rows and 6 columns
 #' \describe{
 #'   \item{hypertension}{phenotype status, 1 or 0}
@@ -84,11 +78,8 @@ pheno_data <- data.frame(hypertension, age, sex, IID, diabetes, ms)
 usethis::use_data(pheno_data, overwrite = TRUE)
 
 #' score information
-#' 
 #' a mock dataset containing score information
-#' 
 #' @name score_data
-#' 
 #' @format data.frame with 3300 rows and 2 columns
 #' \describe{
 #'   \item{prs}{polygenic risk score}
