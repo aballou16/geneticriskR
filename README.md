@@ -11,15 +11,15 @@ status](https://travis-ci.org/aballou16/geneticriskR.svg?branch=master)](https:/
 
 ## Package Aims
 
-The goal of geneticriskR is to provide standard formatting, statistical
-analyses and plotting for polygenic risk score data generated using
-[PRSice-2](https://www.prsice.info/) software. Because recent genetic
-risk studies have shown a great deal of inconsistency, this package will
-aid the reproducibility of future studies.
+The goal of **geneticriskR** is to provide standard formatting,
+statistical analyses and plotting for polygenic risk score data
+generated using [PRSice-2](https://www.prsice.info/) software. Because
+recent genetic risk studies have shown a great deal of inconsistency,
+this package will aid the reproducibility of future studies.
 
 ## Installation
 
-You can install the development version of geneticriskR from
+You can install the development version of **geneticriskR** from
 [Github](https://github.com/) with:
 
 ``` r
@@ -32,8 +32,9 @@ devtools::install_github("aballou16/geneticriskR")
 PRS research has seen significant backlash over the past decade. Much of
 this controversy is the result of inconsistent, unreproducible results.
 While sharing genetic data is difficult (due to privacy and patient
-protection laws), using GeneticriskR will allow for other researchers to
-understand and replicate the analyses that formed the study.
+protection laws), using **geneticriskR** will allow for other
+researchers to understand and replicate the analyses that formed the
+study.
 
 ## Example(s)
 

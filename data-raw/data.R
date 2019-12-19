@@ -11,6 +11,7 @@
 #'   \item{age}{individual's age group, by decade}
 #'   \item{sex}{individual's sex, 1 denotes male, 0 denotes female}
 #' }
+"test_data"
 
 prs <- c(rnorm(3300, 0 ,1))
 
@@ -36,7 +37,6 @@ test_data <- data.frame(prs, hypertension, age, sex)
 
 usethis::use_data(test_data, overwrite = TRUE)
 
-
 #' phenotype table
 #' 
 #' a mock dataset containing phenotype information
@@ -52,6 +52,7 @@ usethis::use_data(test_data, overwrite = TRUE)
 #'   \item{diabetes}{phenotype status, 1 or 0}
 #'   \item{ms}{phenotype status, 1 or 0}
 #' }
+"pheno_data"
 
 hypertension <- c(rep(1, 800),
                   rep(0, 2500))
@@ -93,6 +94,7 @@ usethis::use_data(pheno_data, overwrite = TRUE)
 #'   \item{prs}{polygenic risk score}
 #'   \item{IID}{individual identifier for each subject}
 #' }
+"score_data"
 
 prs <- c(rnorm(3300, 0 ,1))
 
