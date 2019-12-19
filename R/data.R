@@ -32,7 +32,6 @@ sex <- c(rep(1, 1700),
 
 test_data <- data.frame(prs, hypertension, age, sex)
 
-usethis::use_data(test_data, overwrite = TRUE)
 
 #' phenotype table
 #' a mock dataset containing phenotype information
@@ -75,7 +74,7 @@ ms <- c(rep(1, 500),
 
 pheno_data <- data.frame(hypertension, age, sex, IID, diabetes, ms)
 
-usethis::use_data(pheno_data, overwrite = TRUE)
+
 
 #' score information
 #' a mock dataset containing score information
@@ -93,6 +92,6 @@ IID <- seq(1, 3300)
 
 score_data <- data.frame(prs, IID)
 
-usethis::use_data(score_data, overwrite = TRUE)
+
 
 
