@@ -13,6 +13,7 @@ In this vignette, we will demonstrate how to use geneticriskR to perform basic a
 **Step 1. Install geneticriskR**
 
 ```{r setup}
+#install package from github using devtools
 #library the package
 library(geneticriskR)
 ```
@@ -31,7 +32,7 @@ The phenotype file should have all phenotypes of interest and IID as column name
 phenotypes_table <- read_csv(here::here("phenotype_file_name.csv"))
 ```
 
-For this vignette, we will be using the mock data included in this package (pheno_data and score_data). It is important to note that the values for score and phenotype were randomly generated, so they do not appear to be very predictive. 
+For this vignette, we will be using the mock data included in this package (pheno_data and score_data). It is important to note that the values for score and phenotype were randomly generated, so they may not appear to be very predictive. 
 
 **Step 3. Select which phenotype you would like to use from the phenotype file using pheno_select(). In this example, we chose hypertension**
 
@@ -46,10 +47,11 @@ head(phenotype_table)
 
 ```{r}
 full_table <- join_scores(phenotype_table, score_data)
+#Examine the new table
 head(full_table)
 ```
 
-**Step 5. Perform analyses on full_table to assess the predictive power of the scores. In this example, we will use a simple logistc regression model using simple_logistic_reg() and examine the area under the curve using proc_analysis()**
+**Step 5. Perform analyses on full_table to assess the predictive power of the scores. In this example, we will use a simple logistic regression model using simple_logistic_reg() and examine the area under the curve using proc_analysis()**
 
 ```{r}
 #simple logistic regression
@@ -58,11 +60,13 @@ summary(simple_mod)
 ```
 
 ```{r}
-#ROC/AUC analysis
+#ROC/AUC analysis using the previously generated, 'simple_mod'
 proc_analysis(full_table, "hypertension", simple_mod)
 ```
 
-*Note: Important things to consider from these analyses:*
+*Note: Again, pass your phenotype as a character vector*
+
+*Important things to consider from these analyses:*
 
 - *p value for prs > 0.05*
   
@@ -74,14 +78,15 @@ proc_analysis(full_table, "hypertension", simple_mod)
 ```{r}
 compare_boxplots(full_table, "hypertension", "prs")
 ```
+*Note: pass phenotype and score column names as character vectors*
 
-**Conclusion from our analyses: since we found an AUC of approxmiately 0.5, a p-value > 0.5 for our scores, and our side by side boxplots appear almost identical, we conclude that our scores do not predict hypertension risk effectively. Again, this is expected as our scores were randomly generated and binary values for hypertension were randomly assigned to individuals in our "cohort." **
+**Conclusion from our analyses:** since we found an AUC of approxmiately 0.5, a p-value > 0.5 for our scores, and our side by side boxplots appear almost identical, we conclude that our scores do not predict hypertension risk effectively. Again, this is expected as our scores were randomly generated and binary values for hypertension were randomly assigned to individuals in our "cohort." 
 
 **Step 7. Repeat for new scores and phenotypes. Use other functions in this package, such as k_fold() and complex_logistic_reg(). **
 
 ## A comprehensive list of functions in this package: ##
 
-- **pheno_select()** *selects phenotype of interest from the large phenotype file*
+- **pheno_select()** *selects phenotype of interest from the complete phenotype file*
 
 - **join_scores()** *joins the raw score table to the phenotype table*
 
